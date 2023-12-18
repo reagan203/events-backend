@@ -4,11 +4,6 @@ from fastapi import FastAPI
 
 from schemas import EventSchema
 
-
-
-
-
-
 # INITIATE IT
 app = FastAPI()
 
