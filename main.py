@@ -1,7 +1,8 @@
 from typing import Union
-
-from fastapi import FastAPI
-
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+from database import get_db
+from models import Event
 from schemas import EventSchema
 
 # INITIATE IT
@@ -14,8 +15,9 @@ def index():
 
 # Return a list of events (you can add sample data)
 @app.get('/events')
-def events():
-    return []
+def events(db: Session = Depends(get_db)):
+    events =db.query(Event).all()
+    return events
 
 # Include the event_id parameter in the function
 @app.get('/events/{event_id}')
