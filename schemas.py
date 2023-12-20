@@ -10,3 +10,12 @@ class EventSchema(BaseModel):
     numberoftickets:str
     additionalInfo:str
     gender:str
+
+
+class UserSchema(BaseModel):
+    firstname:str
+    lastname:str
+    email:str
+    phonenumber:str
+        
+        

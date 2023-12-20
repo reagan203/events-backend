@@ -20,3 +20,14 @@ class Event(Base):
     gender = Column(String(10))
     created_at = Column(DateTime, server_default=text("CURRENT_TIMESTAMP"), nullable=False)
     updated_at = Column(DateTime, server_default=text("CURRENT_TIMESTAMP"), onupdate=text("CURRENT_TIMESTAMP"), nullable=False)
+    
+    
+class User(Base):
+    __tablename__ ="users"
+    
+    id=    Column(Integer, primary_key=True)
+    firstname = Column(String(50), index=True, nullable=False)
+    lastname = Column(String(50), index=True, nullable=False)
+    email = Column(String(100), unique=True, index=True, nullable=False)
+    phonenumber = Column(String(15), index=True, nullable=False)
+    
