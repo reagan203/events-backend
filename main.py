@@ -1,5 +1,6 @@
 from typing import Union
 from fastapi import FastAPI, Depends,HTTPException,status
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from database import get_db
 from models import Event
@@ -7,6 +8,15 @@ from schemas import EventSchema
 
 # INITIATE IT
 app = FastAPI()
+
+origins = ["http://localhost:3000"]
+
+app.add_middleware(CORSMiddleware,
+                   allow_origins=origins,
+                   allow_credentials=True,
+                   allow_methods=["*"],
+                   allow_headers=["*"],
+                   )
 
 # define route
 @app.get('/')

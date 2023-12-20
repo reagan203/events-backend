@@ -7,7 +7,7 @@ class EventSchema(BaseModel):
     email:str
     phonenumber:str
     selectedEvent:str
-    numberoftickets:str
+    numberoftickets:int
     additionalInfo:str
     gender:str
 
